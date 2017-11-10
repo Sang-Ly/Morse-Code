@@ -11,7 +11,4 @@ public:
 private:
 	map<char, string> map;
 	string expression;
-	
-
 };
-
