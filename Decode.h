@@ -14,7 +14,6 @@ private:
 	BT *root = NULL;
 	BT* buildTree(BT *root, string path);
 	map<string, char> map;
-
 public:
 	Decode(string message);
 	BT* decodeMessage(BT* root, string message, int i);
