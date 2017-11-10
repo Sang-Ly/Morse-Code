@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Decode::Decode(string message) {
+Decode::Decode() {
 	ifstream inFile;
 	string path;
 	char letter;
@@ -16,22 +16,7 @@ Decode::Decode(string message) {
 		path = path.substr(1, path.size());
 		map[path] = letter;
 	}
-
 	root = buildTree(root, "");
-
-	int count = 0;
-	string temp;
-	while (count != message.size()) {
-		temp += message[count];
-		if (isspace(message[count + 1]) || message[count + 1] == NULL) {
-			decodeMessage(root, temp, 0);
-			temp = "";
-			if (message[count + 1] != NULL) {
-				count++;
-			}
-		}
-		count++;
-	}
 }
 
 Decode::BT* Decode::buildTree(BT *rt, string path) {
@@ -70,4 +55,21 @@ Decode::BT* Decode::decodeMessage(BT* rt, string message, int i) {
 		cout << rt->data << endl;
 	}
 	return rt;
+}
+
+string Decode::decode(string message) {
+	int count = 0;
+	string temp;
+	while (count != message.size()) {
+		temp += message[count];
+		if (isspace(message[count + 1]) || message[count + 1] == NULL) {
+			decodeMessage(root, temp, 0);
+			temp = "";
+			if (message[count + 1] != NULL) {
+				count++;
+			}
+		}
+		count++;
+	}
+	return "";
 }

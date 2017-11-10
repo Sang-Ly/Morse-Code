@@ -9,8 +9,9 @@ int main()
 	Encode obj;
 	obj.encode(code);
 
-	string message1 = "_.. __.";
-	Decode Test1(message1);
+	string message = "_.. __.";
+	Decode Message;
+	Message.decode(message);
 
 	cout << endl;
 	system("pause");
