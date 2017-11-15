@@ -1,17 +1,11 @@
-#include "Encode.h"
-#include "Decode.h"
 #include <iostream>
+#include "Morse_Code.h"
 using namespace std;
 
-int main()
-{
-	string code = "ac";
-	Encode obj;
-	obj.encode(code);
+int main() {
+	string code1 = "_c";
+	Morse_Code code(code1);
 
-	string message = "_.. __.";
-	Decode Message;
-	Message.decode(message);
 
 	cout << endl;
 	system("pause");
