@@ -9,6 +9,5 @@ public:
 private:
 	map<char, string> morse_Code_Map;
 	void encode(string);
-
 };
 
