@@ -4,6 +4,12 @@ using namespace std;
 
 int main() {
 
+	string this_Should_Throw_Error_1 = "112";
+	Morse_Code throw_error1(this_Should_Throw_Error_1);		// this should throw error at position 1
+
+	string this_Should_Throw_Error_2 = ".._. +=/";			// this should throw error at position 6
+	Morse_Code throw_error2(this_Should_Throw_Error_2);
+
 	string encode_Message = "ac";
 	Morse_Code encode(encode_Message);		// Will print ._ _._.	
 

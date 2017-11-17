@@ -29,19 +29,6 @@ Morse_Code::Morse_Code(string code){
 		Decode_Message.build_Morse_Code_Tree_Wrapper(letter, path);
 	}
 	inFile.close();
-	// Used try and catch for error checking to see if user enter invalid characters other than morse
-	// code character ( . or _ ), a letter or a blank space
-
-	for (int i = 0; i < code.size(); i++) {
-		try {
-			if (code[i] == '.' || code[i] == '_' || isalpha(code[i]) || code[i] == ' '){}
-			else throw i;
-		}
-		catch (int pos){
-			cout << "invalid character at position: " << pos << endl;
-			break;
-		}
-	}
 		
 	// When try and catch find no error we either check to see if it needs to be encode or decode
 	// here to assume that the user will pick either encoding or decoding 
@@ -49,12 +36,32 @@ Morse_Code::Morse_Code(string code){
 	// for example code: "a _..."
 	// and user want decode, the new code: "a b"
 
-	if (isalpha(code[0])) {
-		encode(code);
+	if (error_check(code)) {
+		if (isalpha(code[0])) {
+			encode(code);
+		}
+		else {
+			Decode_Message.decode_Message_Wrapper(code);
+		}
 	}
-	else {
-		Decode_Message.decode_Message_Wrapper(code);
+	else { EXIT_FAILURE; }
+}
+
+bool Morse_Code::error_check(string code) {
+
+	// This will handle error checking
+	for (int i = 0; i < code.size(); i++) {
+		try {
+			if (code[i] == '.' || code[i] == '_' || isalpha(code[i]) || code[i] == ' ') {}
+			else throw i;
+		}
+		catch (int pos) {
+			cout << "Invalid character at position: " << pos + 1 << endl;
+			return false;
+			break;
+		}
 	}
+	return true;
 }
 
 void Morse_Code::encode(string code) {
