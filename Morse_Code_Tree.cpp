@@ -18,21 +18,19 @@ Morse_Code_Tree::mcTree* Morse_Code_Tree::build_root(char letter) {
 	return n;
 }
 
-void Morse_Code_Tree::buildMorseCodeTreeWrapper(char letter, string path) {
+void Morse_Code_Tree::build_Morse_Code_Tree_Wrapper(char letter, string path) {
 
 	// This check to see if I need to build a root or continue to build tree
 
 	if (letter != ' ') {
-		buildMorseCodeTree(letter, path, root, 0);
+		build_Morse_Code_Tree(letter, path, root, 0);
 	}
 	else{
 		root = build_root(' ');
 	}
 }
 
-Morse_Code_Tree::mcTree* Morse_Code_Tree::buildMorseCodeTree(char letter, string path, mcTree* rt, int i) {
-	
-	
+Morse_Code_Tree::mcTree* Morse_Code_Tree::build_Morse_Code_Tree(char letter, string path, mcTree* rt, int i) {
 	if (rt == NULL) {
 		rt = new mcTree;
 		rt->left = NULL;
@@ -43,10 +41,10 @@ Morse_Code_Tree::mcTree* Morse_Code_Tree::buildMorseCodeTree(char letter, string
 	// When reaches Null insert the letter into that position
 
 	if (path[i] == '.') {
-		rt->left = buildMorseCodeTree(letter, path, rt->left, i + 1);
+		rt->left = build_Morse_Code_Tree(letter, path, rt->left, i + 1);
 	}
 	else if (path[i] == '_') {
-		rt->right = buildMorseCodeTree(letter, path, rt->right, i + 1);
+		rt->right = build_Morse_Code_Tree(letter, path, rt->right, i + 1);
 	}
 	else {
 		rt->data = letter;
@@ -54,7 +52,7 @@ Morse_Code_Tree::mcTree* Morse_Code_Tree::buildMorseCodeTree(char letter, string
 	return rt;
 }
 
-void Morse_Code_Tree::decode(string code) {
+void Morse_Code_Tree::decode_Message_Wrapper(string code) {
 
 	// since using token here is difficult 
 	// I made a decode wrapper to run through message
@@ -65,7 +63,7 @@ void Morse_Code_Tree::decode(string code) {
 	while (i != code.size()) {
 		temp += code[i];
 		if (isspace(code[i + 1]) || code[i + 1] == NULL) {
-			MorseCodeTree(temp, root, 0);
+			decode_Message(temp, root, 0);
 			temp = "";
 			if (code[i + 1] != NULL) {
 				i++;
@@ -75,22 +73,22 @@ void Morse_Code_Tree::decode(string code) {
 	}
 }
 
-Morse_Code_Tree::mcTree* Morse_Code_Tree::MorseCodeTree(string code, mcTree* rt, int count) {
+Morse_Code_Tree::mcTree* Morse_Code_Tree::decode_Message(string code, mcTree* rt, int index) {
 	
 	// if . goes left
 	// if _ goes right
 	// and print out letter when code reaches NULL
 
-	if (code[count] == '.') {
-		if (code[count + 1] != NULL) {
-			rt->left = MorseCodeTree(code, rt->left, count + 1);
+	if (code[index] == '.') {
+		if (code[index + 1] != NULL) {
+			rt->left = decode_Message(code, rt->left, index + 1);
 		}
 		else
 			cout << rt->left->data;
 	}
-	else if (code[count] == '_') {
-		if (code[count + 1] != NULL) {
-			rt->right = MorseCodeTree(code, rt->right, count + 1);
+	else if (code[index] == '_') {
+		if (code[index + 1] != NULL) {
+			rt->right = decode_Message(code, rt->right, index + 1);
 		}
 		else
 			cout << rt->right->data;

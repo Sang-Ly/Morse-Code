@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
 class Morse_Code_Tree
 {
 private:
@@ -18,15 +17,15 @@ private:
 
 	// create build morse code tree and the morse code tree itself
 
-	mcTree* buildMorseCodeTree(char, string, mcTree*, int);
-	mcTree* MorseCodeTree(string, mcTree*, int);
+	mcTree* build_Morse_Code_Tree(char, string, mcTree*, int);
+	mcTree* decode_Message(string, mcTree*, int);
 public:
 
 	// mcTree wrapper, decode, build root
 
 	Morse_Code_Tree();
-	void buildMorseCodeTreeWrapper(char, string);
+	void build_Morse_Code_Tree_Wrapper(char, string);
 	mcTree* build_root(char);
-	void decode(string);
+	void decode_Message_Wrapper(string);
 };
 
