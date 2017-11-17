@@ -4,11 +4,11 @@ using namespace std;
 
 int main() {
 
-	string encodeMessage = "ac";
-	Morse_Code encode(encodeMessage);		// Will print ._ _._.	
+	string encode_Message = "ac";
+	Morse_Code encode(encode_Message);		// Will print ._ _._.	
 
-	string decodeMessage = "_.. __.";
-	Morse_Code decode(decodeMessage);		// Will print dg
+	string decode_Message = "_.. __.";
+	Morse_Code decode(decode_Message);		// Will print dg
 
 	cout << endl;
 
