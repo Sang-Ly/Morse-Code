@@ -5,10 +5,10 @@ using namespace std;
 int main() {
 
 	string encodeMessage = "ac";
-	Morse_Code encode(encodeMessage);
+	Morse_Code encode(encodeMessage);		// Will print ._ _._.	
 
 	string decodeMessage = "_.. __.";
-	Morse_Code decode(decodeMessage);
+	Morse_Code decode(decodeMessage);		// Will print dg
 
 	cout << endl;
 
