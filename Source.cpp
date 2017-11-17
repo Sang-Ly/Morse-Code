@@ -3,8 +3,12 @@
 using namespace std;
 
 int main() {
-	string message = "_.. __.";
-	Morse_Code code(message);
+
+	string encodeMessage = "ac";
+	Morse_Code encode(encodeMessage);
+
+	string decodeMessage = "_.. __.";
+	Morse_Code decode(decodeMessage);
 
 	cout << endl;
 
@@ -23,8 +27,8 @@ int main() {
 
 	Morse_Code code3(message3);
 	cout << " ";
-	*/
 	
+	*/
 
 	cout << endl;
 	system("pause");
