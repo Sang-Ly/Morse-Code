@@ -35,7 +35,7 @@ Morse_Code::Morse_Code(string code){
 	// But if needed we can mix match
 	// for example code: "a _..."
 	// and user want decode, the new code: "a b"
-
+	
 	if (error_check(code)) {
 		if (isalpha(code[0])) {
 			encode(code);

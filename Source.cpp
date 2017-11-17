@@ -11,11 +11,11 @@ int main() {
 	Morse_Code throw_error2(this_Should_Throw_Error_2);
 
 	string encode_Message = "ac";
-	Morse_Code encode(encode_Message);		// Will print ._ _._.	
+	Morse_Code encode(encode_Message);		// Will print ._ _._.
 
 	string decode_Message = "_.. __.";
 	Morse_Code decode(decode_Message);		// Will print dg
-
+	
 	cout << endl;
 
 	/*
